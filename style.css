@@ -1,0 +1,25 @@
+@font-face{font-family:"Newsreader";src:url("polices/Newsreader-latin-300-normal.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Newsreader";src:url("polices/Newsreader-latin-300-italic.ttf") format("truetype");font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:"Newsreader";src:url("polices/Newsreader-latin-400-normal.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Newsreader";src:url("polices/Newsreader-latin-400-italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Newsreader";src:url("polices/Newsreader-latin-500-normal.ttf") format("truetype");font-weight:500;font-style:normal;font-display:swap}
+:root{--ivoire:#F7F3EA;--encre:#161412}
+html{background:var(--ivoire);color:var(--encre)}
+body{margin:0;font:400 19px/1.55 "Newsreader",Georgia,serif;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility}
+main{max-width:34rem;margin:0 auto;padding:2.6rem 1.25rem 4rem}
+a{color:var(--encre)}
+.haut{font-size:.9rem;margin:0 0 2.6rem}
+h1{font-weight:300;font-size:2.35rem;line-height:1.1;margin:0 0 1.5rem;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.statut{font-style:italic;margin-top:1.6em}
+.boutons{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.bouton{display:inline-block;padding:.6rem 1.1rem;border:1px solid var(--encre);text-decoration:none;font-size:1rem;line-height:1.2}
+.bouton:hover,.bouton:focus{background:var(--encre);color:var(--ivoire)}
+.mention{font-size:.8rem;margin-top:2.8rem}
+.accueil h1{font-size:2.6rem;margin:3.2rem 0 0}
+.signe{display:block;margin:2.2rem 0 3.2rem}
+.liens{list-style:none;padding:0;margin:0 0 3rem}
+.liens li{border-top:1px solid var(--encre)}
+.liens li:last-child{border-bottom:1px solid var(--encre)}
+.liens a{display:block;padding:.95rem 0;text-decoration:none;font-size:1.15rem}
+.signature{font-size:.95rem}

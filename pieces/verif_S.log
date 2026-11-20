@@ -1,0 +1,49 @@
+certificat : fenetre a = (0.1991, -0.0749), 14 atomes, 83 splines, pi_0 = 0.001145441967051 ; s0 = 1.036295, nu- = 0.071122, nu+ = 0.018878 ; theta = 0.9, Lambda = 1.465663, p0 = 2.931326, c = 2.5
+0. auto-controle des formules (differences finies, precision 400 bits)
+  [OK] derivees premiere et seconde de q coherentes (ecart maximal 8.4e-24)
+1. normalisation
+  [OK] q(0) >= 1 (q(0) dans [1.000000000050020784669738618915263291578 +/- 3.97e-40])
+2. q >= 0 sur [0, 480] par cellules
+     ... x = 62.19, 5000 cellules, 21s
+     ... x = 62.22, 5001 cellules, 21s
+     ... x = 62.25, 5002 cellules, 21s
+     ... x = 218.44, 10000 cellules, 40s
+     ... x = 218.47, 10001 cellules, 40s
+     ... x = 218.50, 10002 cellules, 40s
+     ... x = 374.69, 15000 cellules, 58s
+     ... x = 374.72, 15001 cellules, 58s
+     ... x = 374.75, 15002 cellules, 58s
+  [OK] q > 0 sur [0, 480] (18370 cellules, 71s ; minorant de cellule le plus bas : (1+x^2) q >= 1.66e-08 pres de x = 19.0859 ; c'est une borne, pas une valeur de q)
+3. q >= 0 sur [480, +infini[ : x = y + 96 n
+     auto-controle : la forme periodique contient x^2 q(x) aux 6 points d'essai
+     ... y = 19.53, 20000 cellules, 5s
+     ... y = 19.53, 20001 cellules, 5s
+     ... y = 39.06, 40000 cellules, 10s
+     ... y = 39.06, 40001 cellules, 10s
+     ... y = 58.59, 60000 cellules, 15s
+     ... y = 58.59, 60001 cellules, 15s
+     ... y = 78.12, 80000 cellules, 20s
+     ... y = 78.13, 80001 cellules, 20s
+  [OK] x^2 q(x) > 0 pour tout x >= 480 (98304 cellules, 25s ; minorant de x^2 q : 1.548e-03 pres de y = 24.005)
+4. C(psi) et V
+  [OK] V = 2 - C(psi) au-dessus du record 0,6780092 (C(psi) dans [1.321861764548420905586 +/- 7.01e-22] ; V >= 0.678138235 ; ecart au record >= 1.290e-04 ; (1+V)/2 >= 0.839069118 ; 0s)
+5. eps
+  [OK] 1 + nu^ >= 1 - eps sur [0, 1] (eps <= 0.052245)
+6. majorant du grand crible
+  [OK] C(u) > 0 sur une demi-periode [0, 1/(2h)] (8534 cellules ; minimum >= 1.417e-03)
+  [OK] g >= w sur [0, 1/2] (256 cellules ; minimum >= 1.998e-05)
+     (12s) ; g^ est lineaire par morceaux, nulle hors de ]-0.9, 0.9[, g^(0) = Lambda = 1.465663
+7. inegalites du theoreme final
+     a >= 0.982154 ; c' <= 2.719976 ; beta <= 0.639679 ; A1 <= 1.776310 ; A2 <= 1.140624
+  [OK] (IV) paire simple : 4ac - ac'^2 - beta^2/a >= 2 (valeur >= 2.13868)
+  [OK] (IV) paires multiples : part(2) >= 8 et pente 4ac >= 6 (part(2) >= 11.9602 ; pente >= 9.8215)
+  [OK] (III) points lourds : psi(3) >= 7 et pente 2ac >= 3 (psi(3) >= 7.4661 ; pente >= 4.9108)
+  [OK] (I) bloc (2,2) paye pour 0 < d <= 0.595 (marge minimale 0.5065 pres de d = 0.594)
+  [OK] (II) paire de base (2,2) payee pour 0.595 <= d < 0.900 (marge minimale 0.20170 pres de d = 0.898)
+  [OK] (I) bloc (2,1) paye pour 0 < d <= 0.500 (marge minimale 0.4326 pres de d = 0.498)
+  [OK] (II) paire de base (2,1) payee pour 0.500 <= d < 0.900 (marge minimale 0.10141 pres de d = 0.898)
+  [OK] (I) bloc (1,1) paye pour 0 < d <= 0.475 (marge minimale 0.0858 pres de d = 0.473)
+  [OK] (II) paire de base (1,1) payee pour 0.475 <= d < 0.900 (marge minimale 0.05071 pres de d = 0.899)
+     (4s)
+BILAN (112s) : 0 : OK ; 1 : OK ; 2 : OK ; 3 : OK ; 4 : OK ; V : 0.6781382354515791 ; 5 : OK ; 6 : OK ; 7 : OK
+code de sortie : 0
