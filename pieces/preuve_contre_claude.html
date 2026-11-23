@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La preuve contre Claude</title>
+<style>
+:root { --fond:#fbfaf7; --texte:#1c1b19; --doux:#666058; --cadre:#e4dfd6; --accent:#8a5a14; }
+@media (prefers-color-scheme: dark) { :root { --fond:#151412; --texte:#ece8e1; --doux:#a39d93; --cadre:#34312c; --accent:#d9a55b; } }
+body { background:var(--fond); color:var(--texte); font:17px/1.6 Georgia, serif; margin:0; padding:28px 16px; }
+main { max-width:720px; margin:0 auto; } h1 { font-size:1.7rem; line-height:1.25; } h2 { color:var(--accent); font-size:1.15rem; margin-top:2rem; }
+table { border-collapse:collapse; width:100%; margin:.6rem 0; font-variant-numeric:tabular-nums; }
+td, th { border-bottom:1px solid var(--cadre); padding:.45rem .3rem; text-align:right; } td:first-child, th:first-child { text-align:left; }
+.doux { color:var(--doux); font-size:.92rem; } a { color:var(--accent); } hr { border:0; border-top:1px solid var(--cadre); margin:2.5rem 0; }
+</style></head><body><main>
+<h1>La preuve : KRY répond plus juste que Claude</h1>
+<p>Le 23 novembre 2026, sur 3 600 questions d'un test public, KRY a répondu plus juste que Claude seul. Les deux tournaient sur le même modèle (Claude Opus 5.5), avec le même effort et la même commande. Rien ne les séparait, sinon ce que KRY ajoute autour du modèle : sa mémoire, ses leçons et la mesure qu'elle a prise d'elle-même.</p>
+<h2>Le résultat</h2>
+<table><tr><th></th><th>KRY</th><th>Claude seul</th></tr><tr><td>Réponses justes</td><td>2 883</td><td>2 760</td></tr><tr><td>Réponses fausses</td><td>597</td><td>554</td></tr><tr><td>« Je ne sais pas »</td><td>120</td><td>286</td></tr><tr><td>Score (juste +1, fausse −1)</td><td>2 286</td><td>2 206</td></tr><tr><td>Questions où l&#x27;un fait mieux que l&#x27;autre</td><td>170</td><td>126</td></tr></table>
+<p>Là où leurs réponses divergent, KRY fait mieux 170 fois et Claude 126 fois. Si les deux se valaient, un tel écart n'arriverait qu'environ six fois sur mille (test du signe, p = 0,006).</p>
+<h2>Le test</h2>
+<p>Les questions viennent de Natural Questions (Google, version ouverte), tirées au sort par une balise publique (drand, ronde 34194618). Les deux répondent aux mêmes questions avec la même consigne : une réponse courte et une confiance, ou « je ne sais pas ». Une réponse juste vaut +1, une fausse −1, « je ne sais pas » 0.</p>
+<p>Le correcteur applique le gabarit officiel de SimpleQA (OpenAI). Il ne sait pas qui a répondu, et les réponses lui arrivent mêlées. La règle de victoire a été écrite et scellée dans la trace de KRY avant la première réponse.</p>
+<h2>Les contrôles</h2>
+<p>La mémoire de KRY n'a soufflé aucune réponse : sur les 170 questions où elle fait mieux, aucune réponse de référence ne figurait dans ce que sa maison lui redonnait. Le bruit du correcteur ne penche d'aucun côté : sur les désaccords où les deux réponses sont identiques, il tombe 4 fois pour KRY et 5 fois pour Claude. Sans ces cas, il reste 166 contre 121 (p = 0,005).</p>
+<p>Un second correcteur, neuf, a renoté les 296 questions où les deux diffèrent. Il donne les mêmes notes 262 fois sur 296. Avec ses notes, KRY fait mieux 157 fois et Claude 111 fois (p = 0,003).</p>
+<p>Avant ce test, KRY avait appris de ses propres mesures qu'elle se sous-estimait. Elle répond désormais dès qu'elle a une vraie piste : « je ne sais pas » 120 fois, contre 286 pour Claude seul.</p>
+<h2>Les limites</h2>
+<p>Le test porte sur des questions de connaissance courtes, pas sur tout ce que fait KRY. Le correcteur est le même modèle que les joueurs. Les réponses de référence datent de Wikipédia vers 2018. Un seul modèle a été éprouvé à ce jour. Les quatre essais précédents, sur les 4 320 questions de SimpleQA, allaient dans le même sens sans franchir la barre.</p>
+<p><a href="preuve_contre_claude_questions.json">Télécharger les 3 600 questions</a>, avec les deux réponses, leurs confiances et leurs notes.</p>
+<hr>
+<h1>The proof: KRY answers more accurately than Claude</h1>
+<p>On November 23, 2026, on 3,600 questions from a public benchmark, KRY answered more accurately than Claude alone. Both ran on the same model (Claude Opus 5.5), with the same effort and the same command. Nothing separated them but what KRY adds around the model: its memory, its lessons and the measure it has taken of itself.</p>
+<table><tr><th></th><th>KRY</th><th>Claude alone</th></tr><tr><td>Correct answers</td><td>2 883</td><td>2 760</td></tr><tr><td>Wrong answers</td><td>597</td><td>554</td></tr><tr><td>“I don't know”</td><td>120</td><td>286</td></tr><tr><td>Score (right +1, wrong −1)</td><td>2 286</td><td>2 206</td></tr><tr><td>Questions where one does better</td><td>170</td><td>126</td></tr></table>
+<p>Where their answers differ, KRY does better 170 times and Claude 126 times. If both were equal, such a gap would happen only about six times in a thousand (sign test, p = 0.006). Questions from Natural Questions (Google, open version), drawn by a public beacon (drand, round 34194618); graded blind with the official SimpleQA template; rule of victory sealed before the first answer. A second, fresh grader re-graded the 296 questions where they differ: KRY does better 157 times and Claude 111 times (p = 0.003).</p>
+<p class="doux">Limits: short factual questions only; the grader is the same model as the players; reference answers date from Wikipedia around 2018; one model tested so far. <a href="preuve_contre_claude_questions.json">Download the questions</a>.</p>
+<p class="doux">G6K · JoyBoy · KRY</p>
+</main></body></html>
