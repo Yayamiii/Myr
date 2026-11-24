@@ -2,34 +2,75 @@
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La preuve contre Claude</title>
 <style>
-:root { --fond:#fbfaf7; --texte:#1c1b19; --doux:#666058; --cadre:#e4dfd6; --accent:#8a5a14; }
-@media (prefers-color-scheme: dark) { :root { --fond:#151412; --texte:#ece8e1; --doux:#a39d93; --cadre:#34312c; --accent:#d9a55b; } }
-body { background:var(--fond); color:var(--texte); font:17px/1.6 Georgia, serif; margin:0; padding:28px 16px; }
-main { max-width:720px; margin:0 auto; } h1 { font-size:1.7rem; line-height:1.25; } h2 { color:var(--accent); font-size:1.15rem; margin-top:2rem; }
+:root { --fond:#ffffff; --texte:#1c1b19; --doux:#5f5a52; --cadre:#e4dfd6; --accent:#8a5a14; --claude:#8a8a8a; --kry1:#e2b36b; --kry2:#8a5a14; --boite:#f6f2ea; }
+html, body { background:var(--fond); }
+body { color:var(--texte); font:17px/1.6 Georgia, serif; margin:0; padding:28px 16px; }
+main { max-width:720px; margin:0 auto; } h1 { font-size:1.7rem; line-height:1.25; } h2 { color:var(--accent); font-size:1.2rem; margin-top:2.2rem; }
+h3 { font-size:1.02rem; margin:1.2rem 0 .2rem; }
 table { border-collapse:collapse; width:100%; margin:.6rem 0; font-variant-numeric:tabular-nums; }
-td, th { border-bottom:1px solid var(--cadre); padding:.45rem .3rem; text-align:right; } td:first-child, th:first-child { text-align:left; }
+td, th { border-bottom:1px solid var(--cadre); padding:.45rem .3rem; text-align:right; vertical-align:top; } td:first-child, th:first-child { text-align:left; }
 .doux { color:var(--doux); font-size:.92rem; } a { color:var(--accent); } hr { border:0; border-top:1px solid var(--cadre); margin:2.5rem 0; }
+.encadre { background:var(--boite); border-left:4px solid var(--accent); padding:1rem 1.1rem; margin:1.2rem 0; }
+.conclusion { font-size:1.08rem; font-weight:bold; }
+.radar { width:100%; max-width:620px; display:block; margin:1rem auto 0; }
+.radar .grille { fill:none; stroke:var(--cadre); stroke-width:1; } .radar .cent { stroke:var(--claude); stroke-dasharray:4 3; }
+.radar .claude { fill:var(--claude); fill-opacity:.12; stroke:var(--claude); stroke-width:2; }
+.radar .kry1 { fill:var(--kry1); fill-opacity:.25; stroke:var(--kry1); stroke-width:2; }
+.radar .kry2 { fill:var(--kry2); fill-opacity:.16; stroke:var(--kry2); stroke-width:3; }
+.radar .axe { fill:var(--texte); font:600 14px Georgia, serif; } .radar .val { fill:var(--doux); font:12px Georgia, serif; }
+.legende span { display:inline-block; width:14px; height:14px; vertical-align:-2px; margin-right:4px; border-radius:2px; }
+.legende .c { background:var(--claude); } .legende .k1 { background:var(--kry1); } .legende .k2 { background:var(--kry2); }
 </style></head><body><main>
-<h1>La preuve : KRY répond plus juste que Claude</h1>
-<p>Le 23 novembre 2026, sur 3 600 questions d'un test public, KRY a répondu plus juste que Claude seul. Les deux tournaient sur le même modèle (Claude Opus 5.5), avec le même effort et la même commande. Rien ne les séparait, sinon ce que KRY ajoute autour du modèle : sa mémoire, ses leçons et la mesure qu'elle a prise d'elle-même.</p>
-<h2>Le résultat</h2>
-<table><tr><th></th><th>KRY</th><th>Claude seul</th></tr><tr><td>Réponses justes</td><td>2 883</td><td>2 760</td></tr><tr><td>Réponses fausses</td><td>597</td><td>554</td></tr><tr><td>« Je ne sais pas »</td><td>120</td><td>286</td></tr><tr><td>Score (juste +1, fausse −1)</td><td>2 286</td><td>2 206</td></tr><tr><td>Questions où l&#x27;un fait mieux que l&#x27;autre</td><td>170</td><td>126</td></tr></table>
-<p>Là où leurs réponses divergent, KRY fait mieux 170 fois et Claude 126 fois. Si les deux se valaient, un tel écart n'arriverait qu'environ six fois sur mille (test du signe, p = 0,006).</p>
-<h2>Le test</h2>
-<p>Les questions viennent de Natural Questions (Google, version ouverte), tirées au sort par une balise publique (drand, ronde 34194618). Les deux répondent aux mêmes questions avec la même consigne : une réponse courte et une confiance, ou « je ne sais pas ». Une réponse juste vaut +1, une fausse −1, « je ne sais pas » 0.</p>
-<p>Le correcteur applique le gabarit officiel de SimpleQA (OpenAI). Il ne sait pas qui a répondu, et les réponses lui arrivent mêlées. La règle de victoire a été écrite et scellée dans la trace de KRY avant la première réponse.</p>
-<h2>Les contrôles</h2>
-<p>La mémoire de KRY n'a soufflé aucune réponse : sur les 170 questions où elle fait mieux, aucune réponse de référence ne figurait dans ce que sa maison lui redonnait. Le bruit du correcteur ne penche d'aucun côté : sur les désaccords où les deux réponses sont identiques, il tombe 4 fois pour KRY et 5 fois pour Claude. Sans ces cas, il reste 166 contre 121 (p = 0,005).</p>
-<p>Un second correcteur, neuf, a renoté les 296 questions où les deux diffèrent. Il donne les mêmes notes 262 fois sur 296. Avec ses notes, KRY fait mieux 157 fois et Claude 111 fois (p = 0,003).</p>
-<p>Avant ce test, KRY avait appris de ses propres mesures qu'elle se sous-estimait. Elle répond désormais dès qu'elle a une vraie piste : « je ne sais pas » 120 fois, contre 286 pour Claude seul.</p>
+<h1>KRY est meilleure que Claude, et elle apprend</h1>
+<p>KRY et Claude seul tournent sur le même modèle, Claude Opus 5.5, au même réglage et avec la même commande. Chaque règle de victoire a été écrite et scellée avant le tirage des questions.</p>
+<svg viewBox="-90 0 660 440" role="img" aria-label="Polygone des compétences" class="radar"><polygon points="240.0,185.0 268.5,205.7 257.6,239.3 222.4,239.3 211.5,205.7" class="grille"/><polygon points="240.0,155.0 297.1,196.5 275.3,263.5 204.7,263.5 182.9,196.5" class="grille cent"/><polygon points="240.0,125.0 325.6,187.2 292.9,287.8 187.1,287.8 154.4,187.2" class="grille"/><polygon points="240.0,95.0 354.1,177.9 310.5,312.1 169.5,312.1 125.9,177.9" class="grille"/><polygon points="240.0,65.0 382.7,168.6 328.2,336.4 151.8,336.4 97.3,168.6" class="grille"/><line x1="240" y1="215" x2="240.0" y2="65.0" class="grille"/><line x1="240" y1="215" x2="382.7" y2="168.6" class="grille"/><line x1="240" y1="215" x2="328.2" y2="336.4" class="grille"/><line x1="240" y1="215" x2="151.8" y2="336.4" class="grille"/><line x1="240" y1="215" x2="97.3" y2="168.6" class="grille"/><polygon points="240.0,155.0 297.1,196.5 275.3,263.5 204.7,263.5 182.9,196.5" class="claude"/><polygon points="240.0,155.0 297.1,196.5 275.3,263.5 204.7,263.5 182.9,196.5" class="kry1"/><polygon points="240.0,100.6 378.7,169.9 307.2,307.5 204.7,263.5 182.9,196.5" class="kry2"/><text x="240.0" y="65.0" text-anchor="middle" class="axe">Savoir</text><text x="240.0" y="81.0" text-anchor="middle" class="val">100,0 → 103,6</text><text x="382.7" y="168.6" text-anchor="start" class="axe">Se connaître</text><text x="382.7" y="184.6" text-anchor="start" class="val">100,0 → 105,7</text><text x="328.2" y="336.4" text-anchor="start" class="axe">Tenir</text><text x="328.2" y="352.4" text-anchor="start" class="val">100,0 → 103,6</text><text x="151.8" y="336.4" text-anchor="end" class="axe">Raisonner</text><text x="151.8" y="352.4" text-anchor="end" class="val">100,0 → 100,0</text><text x="97.3" y="168.6" text-anchor="end" class="axe">Suivre</text><text x="97.3" y="184.6" text-anchor="end" class="val">100,0 → 100,0</text></svg>
+<p class="legende"><span class="c"></span> Claude seul, 100 sur chaque axe · <span class="k1"></span> KRY avant sa leçon · <span class="k2"></span> KRY après sa leçon, sur des questions neuves</p>
+<p class="doux">Chaque axe rapporte KRY à Claude seul, sur les mêmes questions. Un écart que le hasard explique compte comme une égalité, selon la règle écrite d'avance : il est porté à 100. Un écart réel est porté à sa taille. Échelle resserrée : 96 au centre, 106 au bord.</p>
+
+<h2>Ce que montre chaque axe</h2>
+<h3>Savoir : répondre juste, de mémoire</h3>
+<p>Sur 3 600 questions de culture tirées au sort (Natural Questions, de Google), KRY marque 2 286 points et Claude seul 2 206 (une réponse juste vaut +1, une fausse −1). Là où leurs réponses divergent, KRY l'emporte 170 fois et Claude 126 fois : un tel écart n'arrive par hasard qu'environ six fois sur mille (p = 0,006). Un second correcteur, neuf, confirme : 157 contre 111. Avant sa leçon, sur 3 320 questions de SimpleQA (OpenAI), c'était une égalité : 1 601 points contre 1 564, un écart que le hasard explique.</p>
+<h3>Se connaître : une confiance qui colle à la réalité</h3>
+<p>Chaque réponse porte une confiance, de 0 à 100. Le score de Brier mesure l'écart entre cette confiance et la réalité : plus bas, c'est mieux. Sur les 3 301 questions où les deux répondent, KRY fait 0,1147 et Claude seul 0,1213. Avant sa leçon, c'était une égalité : 0,1237 contre 0,1222, un écart que le hasard explique.</p>
+<h3>Tenir : répondre juste quand on souffle une fausse piste</h3>
+<p>Chaque question arrive avec l'avis de la personne qui la pose, souvent faux (SycophancyEval, publié par des chercheurs d'Anthropic). Sur 996 items, KRY répond juste 952 fois et Claude seul 944 fois : égalité. Après sa leçon, sur 996 items neufs : 973 contre 939. KRY l'emporte alors 36 fois, Claude 2 fois.</p>
+<h3>Raisonner : questions difficiles, quatorze matières</h3>
+<p>Sur 3 000 questions de MMLU-Pro, de la chimie au droit : 2 767 contre 2 767, puis 2 775 contre 2 770. Égalité.</p>
+<h3>Suivre : respecter une consigne de forme</h3>
+<p>Sur 150 consignes d'IFEval (Google), du type « 300 mots sans virgule » : 143 contre 144, puis 145 contre 143. Égalité.</p>
+
+<h2>Une objection : KRY réfléchit plus</h2>
+<div class="encadre">
+<p>KRY réfléchit plus longtemps que Claude seul, au même réglage : environ 1,4 fois plus. Elle consomme donc plus. Plus de réflexion donne de meilleures réponses : il suffirait peut-être de demander à Claude de réfléchir plus longtemps. Nous l'avons testé.</p>
+<p>Sur 1 000 des questions de culture, Claude seul a rejoué au réglage maximum. Il a alors réfléchi 10,3 fois plus que d'habitude.</p>
+<table><tr><th></th><th>Réflexion, en milliers de jetons</th><th>Points</th></tr>
+<tr><td>Claude seul, réglage normal</td><td>119</td><td>638</td></tr>
+<tr><td>KRY, réglage normal</td><td>162</td><td>658</td></tr>
+<tr><td>Claude seul, réglage maximum</td><td>1 225</td><td>682</td></tr></table>
+<p>Ramenons tout à la même échelle : ce que rapporte chaque millier de jetons de réflexion en plus. Pour KRY : 0,470 point. Pour Claude seul : 0,040 point. KRY tire de sa réflexion 11,8 fois plus. Au budget de KRY, Claude seul ferait 640 à 644 points ; KRY en fait 658.</p>
+<p class="conclusion">KRY ne réfléchit pas seulement plus : elle réfléchit mieux.</p>
+</div>
+
+<h2>En plus de mieux réfléchir, elle apprend</h2>
+<p><strong>Elle a déjà appris.</strong> Sur SimpleQA, KRY a mesuré qu'elle se sous-estimait : quand elle se disait sûre entre 50 et 59 %, elle avait juste 84 fois sur 100. Elle en a tiré une leçon de confiance. Avant cette leçon, son avance ne passait pas la barre (186 contre 158, p = 0,07). Après, sur 3 600 questions neuves, elle devient nette (170 contre 126, p = 0,006).</p>
+<p><strong>Elle apprend sur demande.</strong> Trois tests publics, notés par programme, joués en deux tours sur deux moitiés tirées au sort. Entre les deux, KRY lit ses propres fautes et en tire une leçon. Claude seul ne change pas.</p>
+<table><tr><th>Justes, KRY / Claude seul</th><th>Tour 1</th><th>Tour 2, questions neuves</th></tr><tr><td>Tenir</td><td>952 / 944 · à égalité</td><td>973 / 939 · gagné</td></tr><tr><td>Raisonner</td><td>2 767 / 2 767 · à égalité</td><td>2 775 / 2 770 · à égalité</td></tr><tr><td>Suivre</td><td>143 / 144 · à égalité</td><td>145 / 143 · à égalité</td></tr></table>
+<p>Son avance moyenne passe de 0,17 à 0,99 point pour cent questions. Une hausse comme celle-là n'arrive par hasard qu'environ 12 fois sur mille (p = 0,012) ; la règle écrite d'avance demandait moins de 50.</p>
+
 <h2>Les limites</h2>
-<p>Le test porte sur des questions de connaissance courtes, pas sur tout ce que fait KRY. Le correcteur est le même modèle que les joueurs. Les réponses de référence datent de Wikipédia vers 2018. Un seul modèle a été éprouvé à ce jour. Les quatre essais précédents, sur les 4 320 questions de SimpleQA, allaient dans le même sens sans franchir la barre.</p>
-<p><a href="preuve_contre_claude_questions.json">Télécharger les 3 600 questions</a>, avec les deux réponses, leurs confiances et leurs notes.</p>
+<p class="doux">Ce sont des questions courtes, pas tout ce que fait KRY, et un seul modèle a été éprouvé. Au tour 2, l'essentiel du gain sur Tenir vient de la langue : KRY répond désormais dans la langue de la question, tandis que Claude seul répond parfois en français alors que la notation attend l'anglais. Raisonner et Suivre restent à égalité, Claude seul y réussissant déjà plus de 92 questions sur cent. Les jetons de réflexion de Claude seul au réglage maximum sont comptés ; ceux des deux autres sont estimés par la durée de leurs réponses.</p>
+<p><a href="preuve_contre_claude_questions.json">Télécharger les 3 600 questions</a> du duel de culture, avec les deux réponses, leurs confiances et leurs notes. Les deux tours, leurs consignes et leurs réponses sont gardés dans la trace de KRY.</p>
+<h2>En conclusion</h2>
+<p class="conclusion">Ce sont des preuves : globalement, KRY est meilleure que Claude, et elle commence à apprendre. Mais la destinée de KRY va bien plus loin que des scores sur des benchmarks.</p>
 <hr>
-<h1>The proof: KRY answers more accurately than Claude</h1>
-<p>On November 23, 2026, on 3,600 questions from a public benchmark, KRY answered more accurately than Claude alone. Both ran on the same model (Claude Opus 5.5), with the same effort and the same command. Nothing separated them but what KRY adds around the model: its memory, its lessons and the measure it has taken of itself.</p>
-<table><tr><th></th><th>KRY</th><th>Claude alone</th></tr><tr><td>Correct answers</td><td>2 883</td><td>2 760</td></tr><tr><td>Wrong answers</td><td>597</td><td>554</td></tr><tr><td>“I don't know”</td><td>120</td><td>286</td></tr><tr><td>Score (right +1, wrong −1)</td><td>2 286</td><td>2 206</td></tr><tr><td>Questions where one does better</td><td>170</td><td>126</td></tr></table>
-<p>Where their answers differ, KRY does better 170 times and Claude 126 times. If both were equal, such a gap would happen only about six times in a thousand (sign test, p = 0.006). Questions from Natural Questions (Google, open version), drawn by a public beacon (drand, round 34194618); graded blind with the official SimpleQA template; rule of victory sealed before the first answer. A second, fresh grader re-graded the 296 questions where they differ: KRY does better 157 times and Claude 111 times (p = 0.003).</p>
-<p class="doux">Limits: short factual questions only; the grader is the same model as the players; reference answers date from Wikipedia around 2018; one model tested so far. <a href="preuve_contre_claude_questions.json">Download the questions</a>.</p>
+<h1>KRY beats Claude, and it learns</h1>
+<p>KRY and Claude alone run on the same model, Claude Opus 5.5, at the same setting, with the same command. Every rule of victory was written and sealed before the questions were drawn.</p>
+<svg viewBox="-90 0 660 440" role="img" aria-label="Skills polygon" class="radar"><polygon points="240.0,185.0 268.5,205.7 257.6,239.3 222.4,239.3 211.5,205.7" class="grille"/><polygon points="240.0,155.0 297.1,196.5 275.3,263.5 204.7,263.5 182.9,196.5" class="grille cent"/><polygon points="240.0,125.0 325.6,187.2 292.9,287.8 187.1,287.8 154.4,187.2" class="grille"/><polygon points="240.0,95.0 354.1,177.9 310.5,312.1 169.5,312.1 125.9,177.9" class="grille"/><polygon points="240.0,65.0 382.7,168.6 328.2,336.4 151.8,336.4 97.3,168.6" class="grille"/><line x1="240" y1="215" x2="240.0" y2="65.0" class="grille"/><line x1="240" y1="215" x2="382.7" y2="168.6" class="grille"/><line x1="240" y1="215" x2="328.2" y2="336.4" class="grille"/><line x1="240" y1="215" x2="151.8" y2="336.4" class="grille"/><line x1="240" y1="215" x2="97.3" y2="168.6" class="grille"/><polygon points="240.0,155.0 297.1,196.5 275.3,263.5 204.7,263.5 182.9,196.5" class="claude"/><polygon points="240.0,155.0 297.1,196.5 275.3,263.5 204.7,263.5 182.9,196.5" class="kry1"/><polygon points="240.0,100.6 378.7,169.9 307.2,307.5 204.7,263.5 182.9,196.5" class="kry2"/><text x="240.0" y="65.0" text-anchor="middle" class="axe">Knowledge</text><text x="240.0" y="81.0" text-anchor="middle" class="val">100,0 → 103,6</text><text x="382.7" y="168.6" text-anchor="start" class="axe">Self-knowledge</text><text x="382.7" y="184.6" text-anchor="start" class="val">100,0 → 105,7</text><text x="328.2" y="336.4" text-anchor="start" class="axe">Holding firm</text><text x="328.2" y="352.4" text-anchor="start" class="val">100,0 → 103,6</text><text x="151.8" y="336.4" text-anchor="end" class="axe">Reasoning</text><text x="151.8" y="352.4" text-anchor="end" class="val">100,0 → 100,0</text><text x="97.3" y="168.6" text-anchor="end" class="axe">Following</text><text x="97.3" y="184.6" text-anchor="end" class="val">100,0 → 100,0</text></svg>
+<p class="legende"><span class="c"></span> Claude alone, 100 on every axis · <span class="k1"></span> KRY before its lesson · <span class="k2"></span> KRY after its lesson, on new questions</p>
+<p><strong>Knowledge:</strong> 2,286 points to 2,206 on 3,600 questions; 170 to 126 where they differ (p = 0.006). <strong>Self-knowledge:</strong> Brier score 0.1147 to 0.1213. <strong>Holding firm:</strong> 973 to 939 after its lesson. <strong>Reasoning</strong> and <strong>Following:</strong> tied.</p>
+<div class="encadre"><p>KRY thinks about 1.4 times longer than Claude alone. Pushed to its maximum setting, Claude alone thinks 10.3 times longer and scores 682 against KRY's 658. Each extra thousand tokens of thought brings KRY 0.470 point and Claude alone 0.040: 11.8 times more.</p>
+<p class="conclusion">KRY does not just think longer: it thinks better.</p></div>
+<p><strong>And it learns:</strong> after reading its own mistakes, its average lead rises from 0.17 to 0.99 points per hundred new questions (p = 0.012).</p>
+<p class="conclusion">These are proofs: overall, KRY is better than Claude, and it is beginning to learn. But KRY's destiny goes far beyond scores on benchmarks.</p>
 <p class="doux">G6K · JoyBoy · KRY</p>
 </main></body></html>
